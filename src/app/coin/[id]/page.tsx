@@ -98,10 +98,7 @@ export default async function CoinPage({ params }: { params: Promise<{ id: strin
           background: 'var(--card)', border: '1px solid var(--card-border)',
           borderRadius: '16px', padding: '24px', marginBottom: '24px',
         }}>
-          <h2 style={{ fontSize: '16px', fontWeight: 600, marginBottom: '16px' }}>
-            Price Chart (7 days)
-          </h2>
-          <PriceChart data={chart.prices} isPositive={isPositive} />
+         <PriceChart data={chart.prices} isPositive={isPositive} coinId={id} />
         </div>
 
         {/* Stats grid */}

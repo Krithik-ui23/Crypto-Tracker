@@ -7,9 +7,11 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params
+  const { searchParams } = new URL(req.url)
+  const days = searchParams.get('days') || '7'
 
   const res = await fetch(
-    `${CG}/coins/${id}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false`,
+    `${CG}/coins/${id}/market_chart?vs_currency=usd&days=${days}&interval=daily`,
     { next: { revalidate: 60 } }
   )
   const data = await res.json()
