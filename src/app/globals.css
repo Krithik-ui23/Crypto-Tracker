@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f0f0f;
+  --card: #f8f9fa;
+  --card-border: #e2e8f0;
+  --muted: #64748b;
+  --green: #16a34a;
+  --red: #dc2626;
+}
+
+[data-theme="dark"] {
+  --background: #0a0a0f;
+  --foreground: #f0f0f0;
+  --card: #111118;
+  --card-border: #1e1e2e;
+  --muted: #94a3b8;
+  --green: #22c55e;
+  --red: #ef4444;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --background: #0a0a0f;
+    --foreground: #f0f0f0;
+    --card: #111118;
+    --card-border: #1e1e2e;
+    --muted: #94a3b8;
+    --green: #22c55e;
+    --red: #ef4444;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--card-border); border-radius: 3px; }
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
