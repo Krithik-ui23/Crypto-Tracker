@@ -37,7 +37,7 @@ export default function CoinTableClient({ initialCoins }: { initialCoins: CoinMa
         <span style={{ textAlign: 'right' }}>7d Chart</span>
       </div>
 
-      {coins.map((coin) => (
+     {coins.map((coin: any) => (
         <CoinRow key={coin.id} coin={coin} />
       ))}
     </div>
